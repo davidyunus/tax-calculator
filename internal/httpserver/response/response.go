@@ -36,7 +36,6 @@ func Error(w http.ResponseWriter, status int, data string, err error) {
 			Code:    errorCode,
 			Message: "Internal Server Error",
 		})
-
 	} else {
 		json.NewEncoder(w).Encode(ErrorResponse{
 			Code:    errorCode,
