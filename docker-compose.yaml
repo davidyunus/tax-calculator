@@ -1,21 +1,22 @@
 version: "3"
 
 services: 
-  image: postgres
-  network: host
-  ports: 
-    - "5432:5432"
-  volumes: 
-    - /app/data/postgres/:/var/lib/postgres
-  environment: 
-    - POSTGRES_PASSWORD=postgres
-  container_name: tax-calculator
+  postgres:
+    image: postgres
+    networks: ["host"]
+    ports: 
+      - "5432:5432"
+    volumes: 
+      - /app/data/postgres/:/var/lib/postgres
+    environment: 
+      - POSTGRES_PASSWORD=postgres
+    container_name: tax-calculator
 
   api:
     build: ./
     ports: 
       - "9090:9090"
-    network: host
+    networks: ["host"]
     depends_on: 
       - postgres
     environment: 
