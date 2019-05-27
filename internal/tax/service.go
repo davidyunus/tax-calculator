@@ -9,13 +9,13 @@ import (
 	"github.com/davidyunus/tax-calculator/internal/data"
 )
 
-// Service ...
+// Service represent service tax
 type Service struct {
 	queryable  data.Queryable
 	taxService *tax.Service
 }
 
-// NewService ...
+// NewService create new tax service
 func NewService(taxService *tax.Service) *Service {
 	return &Service{
 		taxService: taxService,
@@ -62,7 +62,7 @@ func makeResponseTax(taxRequest *tax.Tax) *Tax {
 	return responseTax
 }
 
-// Create ...
+// Create , create tax data
 func (s *Service) Create(ctx context.Context, name string, taxCode int, price int) error {
 	tx := &tax.Tax{}
 
@@ -80,7 +80,7 @@ func (s *Service) Create(ctx context.Context, name string, taxCode int, price in
 	return nil
 }
 
-// FindAll ...
+// FindAll , find all taxes data
 func (s *Service) FindAll(ctx context.Context) ([]*Tax, error) {
 	tx, err := s.taxService.FindAll(ctx)
 	if err != nil {
@@ -95,7 +95,7 @@ func (s *Service) FindAll(ctx context.Context) ([]*Tax, error) {
 	return responseTax, nil
 }
 
-// FindByQuery ...
+// FindByQuery , find tax data by query
 func (s *Service) FindByQuery(ctx context.Context, query string) ([]*Tax, error) {
 	whereQuery := `WHERE "name" LIKE '%` + query + `%' OR "taxCode" like '%` + query + `%' `
 
@@ -112,7 +112,7 @@ func (s *Service) FindByQuery(ctx context.Context, query string) ([]*Tax, error)
 	return responseTax, nil
 }
 
-// FindByKeys ...
+// FindByKeys , find tax data by taxId
 func (s *Service) FindByKeys(ctx context.Context, taxID int) (*Tax, error) {
 	tx, err := s.taxService.FindByKeys(ctx, taxID)
 	if err != nil {
@@ -122,7 +122,7 @@ func (s *Service) FindByKeys(ctx context.Context, taxID int) (*Tax, error) {
 	return makeResponseTax(tx), nil
 }
 
-// Update ...
+// Update , update tax data
 func (s *Service) Update(ctx context.Context, taxID int, name string, taxCode, price int) error {
 	tx, err := s.taxService.FindByKeys(ctx, taxID)
 	if err != nil {
