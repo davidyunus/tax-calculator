@@ -9,7 +9,7 @@ import (
 	_ "github.com/golang-migrate/migrate/source/file"
 	_ "github.com/lib/pq"
 
-	"github.com/tax-calculator/config"
+	"github.com/davidyunus/tax-calculator/config"
 )
 
 func main() {

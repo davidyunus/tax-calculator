@@ -5,12 +5,12 @@ import (
 	"database/sql"
 	"testing"
 
-	"github.com/tax-calculator/internal/tax"
+	"github.com/davidyunus/tax-calculator/internal/tax"
 
 	_ "github.com/lib/pq"
 
-	"github.com/tax-calculator/config"
-	tx "github.com/tax-calculator/internal/data/tax"
+	"github.com/davidyunus/tax-calculator/config"
+	tx "github.com/davidyunus/tax-calculator/internal/data/tax"
 )
 
 func TestCreate(t *testing.T) {

@@ -1,0 +1,23 @@
+version: "3"
+
+services: 
+  image: postgres
+  network: host
+  ports: 
+    - "5432:5432"
+  volumes: 
+    - /app/data/postgres/:/var/lib/postgres
+  environment: 
+    - POSTGRES_PASSWORD=postgres
+  container_name: tax-calculator
+
+  api:
+    build: ./
+    ports: 
+      - "9090:9090"
+    network: host
+    depends_on: 
+      - postgres
+    environment: 
+      - DB_CONNECTION_STRING=postgres://postgres@localhost:5432/user?sslmode=disable
+    container_name: tax-calculator

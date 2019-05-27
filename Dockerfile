@@ -5,13 +5,13 @@ RUN apk add git \
     && go get -u github.com/golang/dep/cmd/dep
 
 # create folder repository
-RUN mkdir -p "$GOPATH/src/github.com/tax-calculator"
+RUN mkdir -p "$GOPATH/src/github.com/davidyunus/tax-calculator"
 
 # set working directory
-WORKDIR /go/src/github.com/tax-calculator
+WORKDIR /go/src/github.com/davidyunus/tax-calculator
 
 # set volume
-COPY . /go/src/github.com/tax-calculator
+COPY . /go/src/github.com/davidyunus/tax-calculator
 
 # install and update dep
 RUN dep ensure --update
@@ -26,6 +26,8 @@ FROM golang:1.10-alpine as runner
 WORKDIR /app
 
 # copy build file to runner
-COPY --from=builder /go/src/github.com/tax-calculator/tax-calculator .
+COPY --from=builder /go/src/github.com/davidyunus/tax-calculator .
+
+EXPOSE 9090
 
 CMD [ "./tax-calculator" ]
