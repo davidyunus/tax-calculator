@@ -8,8 +8,8 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/tax-calculator/internal/httpserver/controller"
-	"github.com/tax-calculator/internal/tax"
+	"github.com/davidyunus/tax-calculator/internal/httpserver/controller"
+	"github.com/davidyunus/tax-calculator/internal/tax"
 )
 
 // HTTPServer ...

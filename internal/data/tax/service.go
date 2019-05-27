@@ -3,7 +3,7 @@ package tax
 import (
 	"context"
 
-	"github.com/tax-calculator/internal/data"
+	"github.com/davidyunus/tax-calculator/internal/data"
 )
 
 // Service ...

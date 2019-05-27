@@ -6,11 +6,11 @@ import (
 
 	_ "github.com/lib/pq"
 
-	tx "github.com/tax-calculator/internal/data/tax"
-	"github.com/tax-calculator/internal/httpserver"
-	"github.com/tax-calculator/internal/tax"
+	tx "github.com/davidyunus/tax-calculator/internal/data/tax"
+	"github.com/davidyunus/tax-calculator/internal/httpserver"
+	"github.com/davidyunus/tax-calculator/internal/tax"
 
-	"github.com/tax-calculator/config"
+	"github.com/davidyunus/tax-calculator/config"
 )
 
 func main() {

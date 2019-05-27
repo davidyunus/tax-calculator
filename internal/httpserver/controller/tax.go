@@ -8,9 +8,9 @@ import (
 
 	"github.com/go-chi/chi"
 
-	"github.com/tax-calculator/internal/httpserver/response"
+	"github.com/davidyunus/tax-calculator/internal/httpserver/response"
 
-	"github.com/tax-calculator/internal/tax"
+	"github.com/davidyunus/tax-calculator/internal/tax"
 )
 
 // TaxController ...

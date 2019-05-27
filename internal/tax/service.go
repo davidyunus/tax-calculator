@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/tax-calculator/internal/data/tax"
+	"github.com/davidyunus/tax-calculator/internal/data/tax"
 
-	"github.com/tax-calculator/internal/data"
+	"github.com/davidyunus/tax-calculator/internal/data"
 )
 
 // Service ...

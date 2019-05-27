@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/tax-calculator/internal/data"
+	"github.com/davidyunus/tax-calculator/internal/data"
 )
 
 // Storage ...
