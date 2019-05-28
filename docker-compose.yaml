@@ -3,7 +3,7 @@ version: "3"
 services: 
   postgres:
     image: postgres
-    networks: ["host"]
+    network_mode: "host"
     ports: 
       - "5432:5432"
     volumes: 
@@ -16,7 +16,7 @@ services:
     build: ./
     ports: 
       - "9090:9090"
-    networks: ["host"]
+    network_mode: "host"
     depends_on: 
       - postgres
     environment: 
