@@ -17,7 +17,7 @@ COPY . /go/src/github.com/davidyunus/tax-calculator
 RUN dep ensure --update
 
 # build docker
-RUN go build
+RUN go build $GOPATH/src/github.com/davidyunus/tax-calculator/cmd/httpserver/main.go
 
 # runner
 FROM golang:1.10-alpine as runner
@@ -30,4 +30,4 @@ COPY --from=builder /go/src/github.com/davidyunus/tax-calculator .
 
 EXPOSE 9090
 
-CMD [ "./tax-calculator" ]
+CMD [ "go", "run", "$GOPATH/src/github.com/davidyunus/tax-calculator/cmd/httpserver/main.go" ]
