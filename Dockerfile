@@ -26,8 +26,8 @@ FROM golang:1.10-alpine as runner
 WORKDIR /app
 
 # copy build file to runner
-COPY --from=builder /go/src/github.com/davidyunus/tax-calculator .
+COPY --from=builder $GOPATH/src/github.com/davidyunus/tax-calculator/main .
 
 EXPOSE 9090
 
-CMD [ "go", "run", "$GOPATH/src/github.com/davidyunus/tax-calculator/cmd/httpserver/main.go" ]
+CMD [ "/app/main" ]

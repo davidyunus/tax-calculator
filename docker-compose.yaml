@@ -9,8 +9,9 @@ services:
     volumes: 
       - /app/data/postgres/:/var/lib/postgresl
     environment: 
-      - POSTGRES_PASSWORD=postgres
-    container_name: tax-calculator
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    container_name: tax-calculator-postgres
 
   api:
     build: ./
@@ -20,5 +21,6 @@ services:
     depends_on: 
       - postgres
     environment: 
-      - DB_CONNECTION_STRING=postgres://postgres@localhost:5432/user?sslmode=disable
-    container_name: tax-calculator
+      POSTGRES_DB: postgres
+      DB_CONNECTION_STRING: postgres://postgres@localhost:5432/user?sslmode=disable
+    container_name: tax-calculator-api
